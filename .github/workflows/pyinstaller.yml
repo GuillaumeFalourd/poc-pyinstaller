@@ -26,6 +26,8 @@ jobs:
       run: |
         echo "__url__ = \"${URL_TEST}\"" > ${{ github.workspace }}/__init__.py
         cat ${{ github.workspace }}/__init__.py
+      env:
+        URL_TEST: 'https://google.com'
 
     - run: pip install -r requirements.txt pyinstaller
 
