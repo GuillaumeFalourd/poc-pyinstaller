@@ -1,9 +1,11 @@
 import requests
 import html2text
-from . import __url__
+from __init__ import __url__
+from __init__ import __version__
 
 print("\033[31mSTART of execution\033[0m\n")
 
+print("VERSION TEST:", __version__)
 print("URL TEST:", __url__)
 
 print("\033[1m1 - Read Github TXT file\033[0m")
