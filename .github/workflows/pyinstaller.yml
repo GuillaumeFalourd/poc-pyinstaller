@@ -21,7 +21,7 @@ jobs:
 
     - name: Udpate variables in __init__.py file (Unix)
       run: |
-        if [ ${{ matrix.os }} != "windows-latest" ]; then
+        if [ "${{ matrix.os }}" != "windows-latest" ]; then
           echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}/__init__.py
           echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}/__init__.py
           cat ${{ github.workspace }}/__init__.py
@@ -33,7 +33,7 @@ jobs:
 
     - name: Udpate variables in __init__.py file (Windows)
       run: |
-        if [ ${{ matrix.os }} == "windows-latest" ]; then
+        if [ "${{ matrix.os }}" == "windows-latest" ]; then
           echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}\__init__.py
           echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}\__init__.py
           cat ${{ github.workspace }}\__init__.py
