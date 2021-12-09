@@ -20,22 +20,23 @@ jobs:
         python-version: 3.9
 
     - name: Udpate variables in __init__.py file (Unix)
-      if: contains(fromJson('["ubuntu-latest", "macos-latest"]'), ${{ matrix.os }})
       run: |
-        echo ${{ matrix.os }}
-        echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}/__init__.py
-        echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}/__init__.py
-        cat ${{ github.workspace }}/__init__.py
+        if [${{ matrix.os }} != "windows-latest"]; then
+          echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}/__init__.py
+          echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}/__init__.py
+          cat ${{ github.workspace }}/__init__.py
+        fi
       env:
         URL_TEST: 'https://google.com'
         URL_VERSION: '1.0.0'
 
     - name: Udpate variables in __init__.py file (Windows)
-      if: ${{ matrix.os }} == 'windows-latest'
       run: |
-        echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}\__init__.py
-        echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}\__init__.py
-        cat ${{ github.workspace }}\__init__.py
+        if [${{ matrix.os }} == "windows-latest"]; then
+          echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}\__init__.py
+          echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}\__init__.py
+          cat ${{ github.workspace }}\__init__.py
+        fi
       env:
         URL_TEST: 'https://google.com'
         URL_VERSION: '1.0.0'
