@@ -21,7 +21,9 @@ jobs:
 
     - name: Udpate url in __init__ file
       run: |
-        echo "__version__ = \"${URL_VERSION}\"\n__url__ = \"${URL_TEST}\"" > ${{ github.workspace }}/__init__.py
+        echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}/__init__.py
+        echo $'\n' > ${{ github.workspace }}/__init__.py
+        echo "__url__ = \"${URL_TEST}\"" > ${{ github.workspace }}/__init__.py
         cat ${{ github.workspace }}/__init__.py
       env:
         URL_TEST: 'https://google.com'

@@ -1,2 +1,2 @@
-__version__ = "1.0.0"
-__url__ = "https://test-1.0.0.com"
+__version__ = "0.0.1"
+__url__ = "https://test-0.0.1.com"
