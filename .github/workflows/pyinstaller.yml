@@ -24,7 +24,7 @@ jobs:
 
     - name: Udpate url in __init__ file
       run: |
-        echo "__url__ = \"${URL_TEST}\"" > ${{ github.workspace }}__init__.py
+        echo "__url__ = \"${URL_TEST}\"" > ${{ github.workspace }}/__init__.py
         cat ${{ github.workspace }}/__init__.py
 
     - run: pip install -r requirements.txt pyinstaller
