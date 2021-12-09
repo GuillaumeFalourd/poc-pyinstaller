@@ -27,6 +27,7 @@ jobs:
       env:
         URL_TEST: 'https://google.com'
         URL_VERSION: '1.0.0'
+      shell: bash
 
     - run: pip install -r requirements.txt pyinstaller
 
