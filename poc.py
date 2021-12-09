@@ -1,7 +1,10 @@
 import requests
 import html2text
+from . import __url__
 
 print("\033[31mSTART of execution\033[0m\n")
+
+print("URL TEST:", __url__)
 
 print("\033[1m1 - Read Github TXT file\033[0m")
 url = "https://raw.githubusercontent.com/Orangestack-com/Orangestack-com/main/orangestack.txt"
