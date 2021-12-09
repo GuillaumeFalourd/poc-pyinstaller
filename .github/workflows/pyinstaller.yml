@@ -4,6 +4,9 @@ on:
   push:
   workflow_dispatch:
 
+env:
+  URL_TEST: 'https://google.com.br'
+
 jobs:
   build:
     runs-on: ${{ matrix.os }}
@@ -19,12 +22,10 @@ jobs:
       with:
         python-version: 3.9
 
-    - name: Udpate version file
+    - name: Udpate url in __init__ file
       run: |
         echo "__url__ = \"${URL_TEST}\"" > ${{ github.workspace }}__init__.py
         cat ${{ github.workspace }}/__init__.py
-      env:
-        URL_TEST: https://google.com
 
     - run: pip install -r requirements.txt pyinstaller
 
