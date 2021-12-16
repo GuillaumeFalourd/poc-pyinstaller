@@ -22,9 +22,9 @@ jobs:
     - name: Udpate variables in __init__.py file (Unix)
       run: |
         if [ "${{ matrix.os }}" != "windows-latest" ]; then
-          echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}/__init__.py
-          echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}/__init__.py
-          cat ${{ github.workspace }}/__init__.py
+          echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}/poc/__init__.py
+          echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}/poc/__init__.py
+          cat ${{ github.workspace }}/poc/__init__.py
         fi
       env:
         URL_TEST: 'https://google.com'
@@ -34,9 +34,9 @@ jobs:
     - name: Udpate variables in __init__.py file (Windows)
       run: |
         if [ "${{ matrix.os }}" == "windows-latest" ]; then
-          echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}\__init__.py
-          echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}\__init__.py
-          cat ${{ github.workspace }}\__init__.py
+          echo "__version__ = \"${URL_VERSION}\"" > ${{ github.workspace }}\poc\__init__.py
+          echo "__url__ = \"${URL_TEST}\"" >> ${{ github.workspace }}\poc\__init__.py
+          cat ${{ github.workspace }}\poc\__init__.py
         fi
       env:
         URL_TEST: 'https://google.com'
@@ -48,7 +48,7 @@ jobs:
     - name: Test script with new variables
       run: python3 poc.py
 
-    - run: pyinstaller poc.py --onefile --clean
+    - run: pyinstaller poc/poc.py --onefile --clean
 
     - name: Check files
       run: |
