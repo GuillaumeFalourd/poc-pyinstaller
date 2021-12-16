@@ -68,7 +68,7 @@ jobs:
       with:
         name: artifact-${{ matrix.os }}
         path: dist/poc.exe
-        
+
     - name: Run Unix binary
       if: ${{ matrix.os }} != 'windows-latest'
       run: ./dist/poc
