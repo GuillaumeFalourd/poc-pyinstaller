@@ -48,26 +48,12 @@ jobs:
     - name: Test script with new variables
       run: python3 poc/poc.py
 
-    - run: pyinstaller poc/poc.py --onefile --clean
+    - run: pyinstaller poc/poc.py --onedir --clean
 
     - name: Check files
       run: |
         cd ./dist
         ls
-
-    - name: Extract Unix binary
-      uses: actions/upload-artifact@v2
-      if: ${{ matrix.os }} != 'windows-latest'
-      with:
-        name: artifact-${{ matrix.os }}
-        path: dist/poc
-
-    - name: Extract Windows binary
-      uses: actions/upload-artifact@v2
-      if: ${{ matrix.os }} == 'windows-latest'
-      with:
-        name: artifact-${{ matrix.os }}
-        path: dist/poc.exe
 
     - name: Run Unix binary
       if: ${{ matrix.os }} != 'windows-latest'
