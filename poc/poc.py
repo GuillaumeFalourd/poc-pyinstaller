@@ -1,7 +1,7 @@
 import requests
 import html2text
-from __init__ import __url__
-from __init__ import __version__
+from poc.__init__ import __url__
+from poc.__init__ import __version__
 
 print("\033[31mSTART of execution\033[0m\n")
 
