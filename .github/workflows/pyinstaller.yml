@@ -57,7 +57,7 @@ jobs:
 
     - name: Run Unix binary
       if: ${{ matrix.os }} != 'windows-latest'
-      run: ./dist/poc
+      run: ./dist/poc/poc
 
     - name: Run Windows binary
       if: ${{ matrix.os }} == 'windows-latest'
