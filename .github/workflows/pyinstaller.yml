@@ -46,7 +46,7 @@ jobs:
     - run: pip install -r requirements.txt pyinstaller
 
     - name: Test script with new variables
-      run: python3 poc.py
+      run: python3 poc/poc.py
 
     - run: pyinstaller poc/poc.py --onefile --clean
 
